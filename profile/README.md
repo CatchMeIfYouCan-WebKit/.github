@@ -21,18 +21,18 @@ CatchMe는 신고부터 소통, 후속 케어까지 한 흐름으로 묶어 초�
 ## 시스템 다이어그램
 ```mermaid
 flowchart LR
-    U["User (Mobile/Web)"] --> FE["Client App\n신고/탐색/채팅/예약"]
+    U["User (Mobile/Web)"] --> FE["Client App<br/>신고/탐색/채팅/예약"]
 
-    FE --> API["Application API\n인증, 게시글, 지도, 예약"]
-    FE <--> WS["Realtime Gateway\nSTOMP/WebSocket"]
+    FE --> API["Application API<br/>인증, 게시글, 지도, 예약"]
+    FE <--> WS["Realtime Gateway<br/>STOMP/WebSocket"]
 
-    API --> DB["Service Database\n유저, 게시글, 채팅, 병원, 예약"]
-    API --> FS["File Storage\n업로드 이미지/미디어"]
+    API --> DB["Service Database<br/>유저, 게시글, 채팅, 병원, 예약"]
+    API --> FS["File Storage<br/>업로드 이미지/미디어"]
 
-    API --> AI["AI Inference Service\nCLIP 기반 이미지 추론"]
+    API --> AI["AI Inference Service<br/>CLIP 기반 이미지 추론"]
     AI --> DB
 
-    API --> MAP["Map/Geo Provider\n주소-좌표 변환"]
+    API --> MAP["Map/Geo Provider<br/>주소-좌표 변환"]
 
     WS --> DB
 ```
@@ -51,3 +51,8 @@ flowchart LR
 - **AI**: FastAPI, PyTorch, Hugging Face Transformers(CLIP)
 - **Infra/Data**: MariaDB(MySQL 호환), File Storage, Geo API
 
+## 프로젝트 구성
+- `backend-develop.zip`: Spring Boot API 서버
+- `Frontend-main.zip`: 프론트엔드 클라이언트
+- `clip-ai-api-master.zip`: 이미지 추론 AI 서버
+- `database-main.zip`: 데이터베이스 스키마
